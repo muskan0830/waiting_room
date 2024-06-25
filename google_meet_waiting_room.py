@@ -13,12 +13,8 @@ meet_link = "https://meet.google.com/oaa-cjrv-wrd"
 def main():
     st.title("Google Meet Verification")
 
-    translation_text = """يرجى إدخال نفس عنوان البريد الإلكتروني الذي قدمته لمكتب المحامي وإلا لن تتمكن من الدخول."""
-
-    st.text(translation_text)  # Display the translation above the input box
-
     email = st.text_input(
-    "Please enter the same email address given to the Lawyer Office (Otherwise you will not be able to gain the access):")
+    "Please enter the same email address given to the Lawyer Office (Otherwise you will not be able to gain the access) (يرجى إدخال نفس عنوان البريد الإلكتروني الذي قدمته لمكتب المحامي وإلا لن تتمكن من الدخول.) :")
     code = st.text_input("Enter your verification code:")
 
     if st.button("Join Meet"):
