@@ -8,16 +8,16 @@ def load_data():
     return {row['email_ids']: row['unique_code'] for _, row in df.iterrows()}
 
 codes = load_data()
-meet_link = "https://meet.google.com/oaa-cjrv-wrd"
+meet_link = ""
 
 def main():
     st.title("Google Meet Verification")
 
     email = st.text_input(
     "Please enter the same email address given to the Lawyer Office (Otherwise you will not be able to gain the access) (يرجى إدخال نفس عنوان البريد الإلكتروني الذي قدمته لمكتب المحامي وإلا لن تتمكن من الدخول.) :")
-    code = st.text_input("Enter your verification code:")
+    code = st.text_input("Enter your verification code (أدخل رمز التحقق الخاص بك) :")
 
-    if st.button("Join Meet"):
+    if st.button("Join Meeting"):
         if not email or not code:
             st.error("Please enter both Email id and verification code. (يرجى إدخال عنوان البريد الإلكتروني ورمز التحقق.)")
         elif email not in codes:
