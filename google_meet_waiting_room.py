@@ -40,7 +40,7 @@ def main():
                 st.error("Email id not found. Please check and try again.(لم يتم العثور على عنوان البريد الإلكتروني. يرجى التحقق والمحاولة مرة أخرى.)")
 
     elif not st.session_state.verification_successful:
-        st.success("Email id found. Please locate your code in the list and paste it.(الرجاء ابحث عن رمز التحقق الخاص بك وألصقة في الخانه المخصصه للرمز بالأسفل)")
+        st.success("Email id found. Please locate your code in the list and paste it.(الرجاء قم بتنزيل الملف وابحث عن رمز التحقق الخاص بك في القائمه وألصقة في الخانه المخصصه للرمز بالأسفل)")
         st.markdown(get_csv_download_link(df), unsafe_allow_html=True)
         
         code = st.text_input("Enter your verification code:", key="code_input")
