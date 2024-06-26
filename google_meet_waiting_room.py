@@ -11,7 +11,7 @@ codes = load_data()
 meet_link = "https://www.twitch.tv/alhabsilawfirm"
 
 def main():
-    st.title("Google Meet Verification")
+    st.title("Meeting Verification")
 
     email = st.text_input(
     "Please enter the same email address given to the Lawyer Office (Otherwise you will not be able to gain the access) (يرجى إدخال نفس عنوان البريد الإلكتروني الذي قدمته لمكتب المحامي وإلا لن تتمكن من الدخول.) :")
