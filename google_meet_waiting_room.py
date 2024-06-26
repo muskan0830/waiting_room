@@ -8,7 +8,7 @@ def load_data():
     return {row['email_ids']: row['unique_code'] for _, row in df.iterrows()}
 
 codes = load_data()
-meet_link = ""
+meet_link = "https://www.twitch.tv/alhabsilawfirm"
 
 def main():
     st.title("Google Meet Verification")
