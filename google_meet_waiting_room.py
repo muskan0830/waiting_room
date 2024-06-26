@@ -1,18 +1,11 @@
 import streamlit as st
 import pandas as pd
-import base64
 
 # Load your data
 @st.cache_data
 def load_data():
     df = pd.read_csv('email_ids.csv', encoding='ISO-8859-1')
     return df
-
-def get_csv_download_link(df):
-    csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="email_ids.csv">Download CSV file</a>'
-    return href
 
 def main():
     st.title("Meeting Verification")
@@ -41,7 +34,9 @@ def main():
 
     elif not st.session_state.verification_successful:
         st.success("Email id found. Please locate your code in the list and paste it.(الرجاء قم بتنزيل الملف وابحث عن رمز التحقق الخاص بك في القائمه وألصقة في الخانه المخصصه للرمز بالأسفل)")
-        st.markdown(get_csv_download_link(df), unsafe_allow_html=True)
+        
+        # Display the data table
+        st.dataframe(df[['email_ids', 'unique_code']])
         
         code = st.text_input("Enter your verification code:", key="code_input")
         
@@ -56,7 +51,7 @@ def main():
 
     else:
         st.success("Verification successful! (تم التحقق بنجاح!)")
-        meet_link = "https://www.twitch.tv/alhabsilawfirm"  # Replace with actual meeting link
+        meet_link = "https://your-meeting-link.com"  # Replace with actual meeting link
         st.markdown(f"[Click here to join the meeting (انقر هنا للانضمام إلى الاجتماع)]({meet_link})")
 
 if __name__ == '__main__':
